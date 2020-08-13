@@ -1,0 +1,26 @@
+version: '3'
+services:
+
+  database:
+    image: postgres:latest
+    volumes:
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./sql/db:/var/lib/postgresql/
+    # build:
+    #   context: ./sql
+    #   dockerfile: db.Dockerfile
+    env_file:
+      - database.env
+    ports:
+      - "5432:5432"
+
+  web:
+    build: .
+    links:
+      - "database:dbhost"
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+    environment:
+      FLASK_ENV: development
