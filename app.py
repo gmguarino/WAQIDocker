@@ -15,8 +15,7 @@ POSTGRES_HOST = 'dbhost'
 POSTGRES_PORT = '5432'
 
 # Token per le chiamate alla API della world air quality index
-# API_TOKEN = "INSERT YOUR API TOKEN HERE"
-API_TOKEN = "701db77838d1e5156e628c19086cc420840f0066"
+API_TOKEN = "INSERT YOUR API TOKEN HERE"
 VARIABLE_DICT = {'t' : 'Temperature',
                  'h' : 'Humidity',
                  'p' : 'Pressure',
